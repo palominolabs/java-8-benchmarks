@@ -6,7 +6,7 @@ Base JMH benchmark code from https://bitbucket.org/marshallpierce/gradle-jmh-dem
 
 ```
 ./gradlew shadowJar
-java -jar build/distributions/microbenchmarks.jar
+java -jar jmh/build/distributions/microbenchmarks.jar
 ```
 # Using JMH from Gradle
 

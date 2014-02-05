@@ -1,4 +1,4 @@
-package com.palominolabs.java8;
+package com.palominolabs.benchmark.java8;
 
 import org.openjdk.jmh.annotations.GenerateMicroBenchmark;
 import org.openjdk.jmh.annotations.Scope;

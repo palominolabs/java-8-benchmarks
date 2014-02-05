@@ -1,47 +1,17 @@
-import com.github.jengelman.gradle.plugins.shadow.transformers.ManifestResourceTransformer
+subprojects {
+  apply plugin: 'java'
 
-apply plugin: 'java'
-apply plugin: 'apt'
-apply plugin: 'shadow'
+  group = 'com.palominolabs'
+  version = '1.0.0-SNAPSHOT'
 
-version = '0.0.1-SNAPSHOT'
+  sourceCompatibility = JavaVersion.VERSION_1_6
+  targetCompatibility = JavaVersion.VERSION_1_6
 
-sourceCompatibility = JavaVersion.VERSION_1_6
-
-dependencies {
-  compile 'org.openjdk.jmh:jmh-core:0.3'
-  // expose jmh to apt plugin
-  apt 'org.openjdk.jmh:jmh-core:0.3'
-}
-
-repositories {
-  mavenCentral()
-}
-
-buildscript {
   dependencies {
-    repositories {
-      mavenCentral()
-      jcenter()
-      maven {
-        url "https://oss.sonatype.org/content/repositories/snapshots/"
-      }
-    }
-
-    classpath 'com.jimdo.gradle:gradle-apt-plugin:0.2-SNAPSHOT'
-    classpath 'com.github.jengelman.gradle.plugins:shadow:0.8'
   }
-}
 
-shadow {
-  // hardcode output to be just like jmh archetype
-  outputFile new File(project.buildDir, 'distributions/microbenchmarks.jar')
-
-  transformer(ManifestResourceTransformer) {
-    attributes 'Main-Class': 'org.openjdk.jmh.Main'
+  repositories {
+    mavenCentral()
+    mavenLocal()
   }
-}
-
-task wrapper(type: Wrapper) {
-  gradleVersion = '1.10'
 }
