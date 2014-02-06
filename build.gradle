@@ -1,14 +1,10 @@
 subprojects {
   apply plugin: 'java'
 
-  group = 'com.palominolabs'
+  group = 'com.palominolabs.benchmark'
   version = '1.0.0-SNAPSHOT'
 
-  sourceCompatibility = JavaVersion.VERSION_1_7
-  targetCompatibility = JavaVersion.VERSION_1_7
-
-  dependencies {
-  }
+  sourceCompatibility = JavaVersion.VERSION_1_8
 
   repositories {
     mavenCentral()
