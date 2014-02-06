@@ -1,18 +1,22 @@
 Benchmarks of new Java 8 things
 
-Base JMH benchmark code from https://bitbucket.org/marshallpierce/gradle-jmh-demo
+# Running JMH benchmarks
 
-# Quick start
+This distribution includes JMH based benchmarks, which will provide the most accurate numbers:
 
 ```
 ./gradlew shadowJar
-java -jar jmh/build/distributions/microbenchmarks.jar
+java -jar jmh/build/distributions/jmh-benchmarks.jar
 ```
-# Using JMH from Gradle
 
-[JMH](http://openjdk.java.net/projects/code-tools/jmh/) provides a maven archetype out of the box for setting up benchmarking projects. For those of us that have moved on to Gradle, this project shows a toy benchmark with JMH integrated into the Gradle build process to end up with
+Base JMH benchmark code from https://bitbucket.org/marshallpierce/gradle-jmh-demo
 
-It uses the following Gradle plugins:
+# Standalone benchmarks
 
-- [gradle-apt-plugin](https://github.com/Jimdo/gradle-apt-plugin) to enable benchmark code gen
-- [shadow](https://github.com/johnrengelman/shadow) to generate an all-in-one jar
+There are also standalone benchmarks, suitable for running under perf-stat or other things:
+
+```
+./gradlew shadowJar
+java -classpath standalone/build/distributions/standalone-benchmarks.jar com.palominolabs.benchmark.AtomicLongBenchmark
+java -classpath standalone/build/distributions/standalone-benchmarks.jar com.palominolabs.benchmark.LongAdderBenchmark
+```

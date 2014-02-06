@@ -9,10 +9,6 @@ dependencies {
   apt 'org.openjdk.jmh:jmh-core:0.3'
 }
 
-repositories {
-  mavenCentral()
-}
-
 buildscript {
   dependencies {
     repositories {
@@ -29,7 +25,7 @@ buildscript {
 
 shadow {
   // hardcode output to be just like jmh archetype
-  outputFile new File(project.buildDir, 'distributions/microbenchmarks.jar')
+  outputFile new File(project.buildDir, 'distributions/jmh-benchmarks.jar')
 
   transformer(ManifestResourceTransformer) {
     attributes 'Main-Class': 'org.openjdk.jmh.Main'
