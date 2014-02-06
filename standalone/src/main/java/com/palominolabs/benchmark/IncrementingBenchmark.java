@@ -11,7 +11,7 @@ import java.util.concurrent.CyclicBarrier;
 
 abstract class IncrementingBenchmark {
     protected final int addCount = 100000000;
-    private final int runCount = 20;
+    private final int runCount = 2;
 
     private final int numThreads;
     private final CyclicBarrier barrier;
@@ -35,7 +35,25 @@ abstract class IncrementingBenchmark {
 
     protected abstract Long getCounterValue();
 
-    protected abstract IncrementingBenchmarkThread createThread();
+    /**
+     * Get the number of threads, the only command line argument
+     *
+     * @param args command line arguments array
+     * @return The number of threads to run, or explode if not provided
+     */
+    protected static int getNumThreads(String[] args) {
+        int numThreads = 1;
+        try {
+            numThreads = Integer.parseInt(args[0]);
+        } catch (Exception e) {
+            System.out.println("Pass number of threads on command line; using default (1)");
+        }
+        return numThreads;
+    }
+
+    private IncrementingBenchmarkThread createThread() {
+        return new IncrementingBenchmarkThread(this);
+    }
 
     public void benchmark() throws Exception {
         System.out.println("Performing " + NumberFormat.getInstance().format(addCount) + " increments with " + numThreads + " threads");
