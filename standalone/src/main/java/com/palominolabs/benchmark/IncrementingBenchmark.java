@@ -11,7 +11,7 @@ import java.util.concurrent.CyclicBarrier;
 
 abstract class IncrementingBenchmark {
     protected final int addCount = 100000000;
-    private final int runCount = 2;
+    private final int runCount = 20;
 
     private final int numThreads;
     private final CyclicBarrier barrier;
