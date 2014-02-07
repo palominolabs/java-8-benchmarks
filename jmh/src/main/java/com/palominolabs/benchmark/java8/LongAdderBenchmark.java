@@ -6,17 +6,12 @@ import org.openjdk.jmh.annotations.State;
 
 import java.util.concurrent.atomic.LongAdder;
 
+@State(Scope.Benchmark)
 public class LongAdderBenchmark {
-    @State(Scope.Benchmark)
-    static class LongAdderState {
-        public static final LongAdder longAdder = new LongAdder();
-    }
+    private LongAdder longAdder = new LongAdder();
 
-    @State(Scope.Thread)
-    public static class LongAdderAction {
-        @GenerateMicroBenchmark
-        public void longAdderBenchmark() {
-            LongAdderState.longAdder.increment();
-        }
+    @GenerateMicroBenchmark
+    public void longAdderBenchmark() {
+        longAdder.increment();
     }
 }
