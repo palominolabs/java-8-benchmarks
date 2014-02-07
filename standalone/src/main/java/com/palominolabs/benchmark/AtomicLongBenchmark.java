@@ -1,17 +1,17 @@
 package com.palominolabs.benchmark;
 
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 
-final class AtomicIntegerBenchmark extends IncrementingBenchmark {
-    AtomicInteger counter;
+final class AtomicLongBenchmark extends IncrementingBenchmark {
+    AtomicLong counter;
 
-    public AtomicIntegerBenchmark(int numThreads) {
+    public AtomicLongBenchmark(int numThreads) {
         super(numThreads);
     }
 
     @Override
     protected void initializeCounter() {
-        counter = new AtomicInteger();
+        counter = new AtomicLong();
     }
 
     @Override
@@ -30,9 +30,9 @@ final class AtomicIntegerBenchmark extends IncrementingBenchmark {
     }
 
     public static void main(String[] args) {
-        AtomicIntegerBenchmark longAdderBenchmark = new AtomicIntegerBenchmark(getNumThreads(args));
+        AtomicLongBenchmark atomicLongBenchmark = new AtomicLongBenchmark(getNumThreads(args));
         try {
-            longAdderBenchmark.benchmark();
+            atomicLongBenchmark.benchmark();
         } catch (Exception e) {
             e.printStackTrace();
         }
