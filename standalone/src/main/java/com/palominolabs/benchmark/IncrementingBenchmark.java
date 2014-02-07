@@ -33,7 +33,7 @@ abstract class IncrementingBenchmark {
 
     protected abstract void clearCounter();
 
-    protected abstract Long getCounterValue();
+    protected abstract long getCounterValue();
 
     /**
      * Get the number of threads, the only command line argument

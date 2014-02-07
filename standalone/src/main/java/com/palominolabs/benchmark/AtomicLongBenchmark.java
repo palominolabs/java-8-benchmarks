@@ -25,7 +25,7 @@ final class AtomicLongBenchmark extends IncrementingBenchmark {
     }
 
     @Override
-    protected Long getCounterValue() {
+    protected long getCounterValue() {
         return counter.longValue();
     }
 
