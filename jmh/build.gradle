@@ -31,7 +31,3 @@ shadow {
     attributes 'Main-Class': 'org.openjdk.jmh.Main'
   }
 }
-
-task wrapper(type: Wrapper) {
-  gradleVersion = '1.10'
-}
