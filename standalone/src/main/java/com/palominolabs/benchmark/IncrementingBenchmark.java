@@ -10,7 +10,7 @@ import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
 abstract class IncrementingBenchmark {
-    protected final int addCount = 100000000;
+    protected final int addCount = 10000000;
     private final int runCount = 20;
 
     private final int numThreads;
